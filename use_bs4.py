@@ -1,4 +1,5 @@
 import requests
+from bs4 import BeautifulSoup
 
 url = 'https://detik.com'
 try:
@@ -6,7 +7,10 @@ try:
     if response.status_code == 200: # apabila response sukses maka akan cetak di bawah
         # print(f'sukses ! {response}') # f digunakan untuk string variabel baru pada python
         print(f'sukses! Response = {response.status_code}') # f digunakan untuk string variabel baru pada python
-        print(f'content {response.text}') # di text ini menampilkan teks / kalimat dari respons
+        #print(f'content {response.text}') # di text ini menampilkan teks / kalimat dari respons
+        soup = BeautifulSoup(response.text, features="html.parser")
+        print(f'Hasil pemanggilan url = {url}')
+        print(f'Title = {soup.title.string}')
     else:
         print(f'terjadi kesalahan pada requests = {response.status_code}') # menampilkan error nilai status code
     # print('\nsukses')
