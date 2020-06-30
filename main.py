@@ -15,3 +15,13 @@ print(s1.hitung_luas())
 print('\nmencoba membuat object dari class bangun ruang')
 b1 = BangunRuang()
 print(b1.info())
+
+# polymorphism : kemampuan object untuk merespon berbeda, terhadap pemanggilan method yg sama
+
+daftar_bangun_ruang = []
+daftar_bangun_ruang.append(p1)
+daftar_bangun_ruang.append(s1)
+
+print('\npolymorphism')
+for bangun_ruang in daftar_bangun_ruang:
+    print(bangun_ruang.info())
